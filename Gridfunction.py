@@ -23,4 +23,11 @@ def create_world(X_scale: int = 50, Y_scale: int = 50):
     dudraw.set_y_scale(0, Y_scale)
     grid_scale = [[EMPTY for j in range (X_scale)] for i in range (Y_scale)]
     return grid_scale
+
+def main():
+    create_world()
+    dudraw.show(500)
+
+if __name__ == '__main__':
+    main()
     
