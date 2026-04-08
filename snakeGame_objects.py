@@ -7,10 +7,10 @@ class Object:
         self.x = x
         self.y = y
 
-        self.color = color
+        self.COLOR = color
 
     def __str__(self):
-        return (f"coordinate: ({self.x}, {self.y}), RGB: {self.color}")
+        return (f"coordinate: ({self.x}, {self.y}), RGB: {self.COLOR}")
 
     def __repr__(self):
         return self.__str__()
@@ -27,9 +27,8 @@ class Object:
 class Food(Object):
 
     def __init__(self, x, y):
-        super().__init__(x, y)
+        super().__init__(x, y, self.COLOR)
         self.eaten = False
-        self.FOOD = dudraw.Color(self.r, self.g, self.b)
 
     def __str__(self) :
         return f"Food: " + super().__str__() + f" eaten: {self.eaten}"
@@ -41,7 +40,7 @@ class Food(Object):
         return self.eaten
 
     def draw( self ) :
-        dudraw.set_pen_color( Minnow.MINNOW )
+        dudraw.set_pen_color( self.COLOR )
         dudraw.filled_rectangle( self.x+0.5, self.y+0.5, 0.45, 0.45 )
 
 class Snakebody(Object):
