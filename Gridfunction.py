@@ -47,12 +47,13 @@ def main():
     timer = 0  #a timer to keep track of number of frames that passed
 
     num_food = 1
-
-    while True:
+    key = dudraw.next_key_typed()
+    while key != 'q':
         timer += 1
         #process keyboard press here
         if timer == limit:
             timer = 0
+            the_grid.draw()
             #draw and move the snake
             #check to see if snake ate the fruit
             #check if the snake self intersects

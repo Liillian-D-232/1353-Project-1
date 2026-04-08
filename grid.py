@@ -32,3 +32,37 @@ class Grid:
             new_apple = snakeGame_objects.Food(x,y)
             self.grid[x][y] = new_apple
             self.uneaten_food.append(new_apple)
+
+
+    def eat_food( self, x, y ) :
+        # TODO: Determine the fish at this location.
+        the_food = self.grid[x][y]
+        # Change its .dead instance variable to True
+        the_food.eaten = True
+        # Set the grid location to None
+        self.grid[x][y] = None
+        # append this fish to the list of dead fish.
+        self.eaten_food.append(the_food)
+
+    def remove_eaten_food(self):
+        # TODO: traverse the list of dead_fish. For each one,
+        # remove it from the list of living_fish. Then clear
+        # the list of dead_fish.
+        for eatenfood in self.eaten_food:
+            if eatenfood in self.uneaten_food:
+                self.uneaten_food.remove(eatenfood)
+        
+        self.eaten_food.clear()
+
+    def draw(self):
+        """Draw the current minnows and trouts in the lake"""
+        # TODO: Write nested for loops which iterate over the grid cells of the lake
+        #    If the cell value is None, draw a lake square
+        #    Otherwise the cell value is a fish object so ask the fish to draw itself
+        for i in range(self.width):
+            for j in range(self.height):
+                if self.grid[i][j] is None:
+                    pass
+                else:
+                    obj = self.grid[i][j]
+                    obj.draw()

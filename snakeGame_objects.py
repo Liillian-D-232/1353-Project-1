@@ -45,6 +45,7 @@ class Food(Object):
 
 class Snakebody(Object):
 
-    dudraw.color
+    # dudraw.color
 
-    def __init__(self, x, y)
+    def __init__(self, x, y):
+        pass
