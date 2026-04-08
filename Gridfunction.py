@@ -45,6 +45,9 @@ def main():
 
     limit = 20 #number of frames to allow to pass before snake moves
     timer = 0  #a timer to keep track of number of frames that passed
+
+    num_food = 1
+
     while True:
         timer += 1
         #process keyboard press here

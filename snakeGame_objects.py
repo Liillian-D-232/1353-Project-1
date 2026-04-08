@@ -1,23 +1,5 @@
 import dudraw
 
-class Particle:
-    def __init__(self, x, y, color) -> None:
-        self.x_pos = x
-        self.y_pos = y
-        self.color = color
-
-    def draw(self):
-        dudraw.set_pen_color_rgb(*self.color)
-        dudraw.filled_square(self.x_pos, self.y_pos, 15)
-
-class Food(Particle):
-    def __init__(self, x, y) -> None:
-        super().__init__(x, y)
-
-    def is_dead(self) -> bool:
-        return False
-
-
 class Object:
     """Base class for all objects on grid"""
 
@@ -46,11 +28,10 @@ class Object:
 
 class Food(Object):
 
-    dudraw.color
-
     def __init__(self, x, y):
         super().__init__(x, y)
         self.eaten = False
+        self.FOOD = dudraw.Color(self.r, self.g, self.b)
 
     def __str__(self) :
         return f"Food: " + super().__str__() + f" eaten: {self.eaten}"
@@ -62,5 +43,5 @@ class Food(Object):
         return self.eaten
 
     def draw( self ) :
-        dudraw.set_pen_color( Minnow.MINNOW )
+        dudraw.set_pen_color( self.FOOD )
         dudraw.filled_rectangle( self.x+0.5, self.y+0.5, 0.45, 0.45 )
