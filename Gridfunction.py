@@ -1,6 +1,7 @@
 import dudraw
 import random
 import snakeGame_objects
+from grid import Grid
 
 EMPTY = 0
 SNAKEHEAD = 1
@@ -26,7 +27,7 @@ BACKGROUND = dudraw.Color(62, 70,  73)
 #     Y_scale = int(int(scale)//5)
 #     return X_scale, Y_scale
 
-def create_world(X_scale: int = 20, Y_scale: int = 20):
+def create_world():
     dudraw.set_canvas_size( CANVAS_X, CANVAS_Y )
     dudraw.set_x_scale( 0, WIDTH )
     dudraw.set_y_scale( 0, HEIGHT )
@@ -40,6 +41,8 @@ def create_world(X_scale: int = 20, Y_scale: int = 20):
 
 def main():
     create_world()
+    the_grid = Grid(WIDTH, HEIGHT)
+
     limit = 20 #number of frames to allow to pass before snake moves
     timer = 0  #a timer to keep track of number of frames that passed
     while True:
