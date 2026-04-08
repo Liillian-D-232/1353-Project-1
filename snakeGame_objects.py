@@ -18,7 +18,7 @@ class Food(Particle):
         return False
 
 
-class Fish:
+class Object:
     """Base class for all objects on grid"""
 
     def __init__(self, x, y):
@@ -35,11 +35,32 @@ class Fish:
     def __repr__(self):
         return self.__str__()
     
-    def move(self, lake):
+    def move(self, grid):
         pass
 
-    def check_status(self, lake):
+    def check_status(self, grid):
         pass
 
     def draw(self) :
         pass
+
+class Food(Object):
+
+    dudraw.color
+
+    def __init__(self, x, y):
+        super().__init__(x, y)
+        self.eaten = False
+
+    def __str__(self) :
+        return f"Food: " + super().__str__() + f" eaten: {self.eaten}"
+    
+    def __repr__(self) :
+        return self.__str__()
+    
+    def is_eaten(self) :
+        return self.eaten
+
+    def draw( self ) :
+        dudraw.set_pen_color( Minnow.MINNOW )
+        dudraw.filled_rectangle( self.x+0.5, self.y+0.5, 0.45, 0.45 )
