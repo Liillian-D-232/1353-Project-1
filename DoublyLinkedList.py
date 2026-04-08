@@ -234,6 +234,35 @@ class DoublyLinkedList:
         self.size -= 1
         return return_val
 
+    def remove_at_index(self, index: int):
+        """
+        Remove the node at the given index and return its value.
+
+        Args:
+            index (int): The position of the node to remove.
+
+        Returns:
+            The value stored in the removed node.
+
+        Raises:
+            IndexError: If index is out of bounds.
+
+        TODO:
+        - Validate that index is between 0 and self.size - 1.
+        - If index is 0, remove the first node.
+        - If index is self.size - 1, remove the last node.
+        - Otherwise, traverse to the target node.
+        - Re-link the previous and next nodes around it.
+        - Decrease self.size and return the removed value.
+        """
+        self.remove_between(index-1, index+1)
+
+    def first(self):
+        return self.get(0)
+
+    def last(self):
+        return self.get(self.size)
+
     def get(self, index: int):
         """
         Return the value stored at the given index.
@@ -259,29 +288,6 @@ class DoublyLinkedList:
             curr=curr.next
 
         return curr.value
-
-    def remove_at_index(self, index: int):
-        """
-        Remove the node at the given index and return its value.
-
-        Args:
-            index (int): The position of the node to remove.
-
-        Returns:
-            The value stored in the removed node.
-
-        Raises:
-            IndexError: If index is out of bounds.
-
-        TODO:
-        - Validate that index is between 0 and self.size - 1.
-        - If index is 0, remove the first node.
-        - If index is self.size - 1, remove the last node.
-        - Otherwise, traverse to the target node.
-        - Re-link the previous and next nodes around it.
-        - Decrease self.size and return the removed value.
-        """
-        self.remove_between(index-1, index+1)
 
     def search(self, value):
         """
