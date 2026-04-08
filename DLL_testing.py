@@ -9,7 +9,6 @@ def dll_tester():
     
     #testing add_first
     test_list.add_first(1)
-    print(test_list)
     assert test_list.first() == 1, 'add_first needs adjustment!'
     assert test_list.last() == 1, 'add_first needs adjustment!'
     assert test_list.get_size() == 1 ,    'add_first needs adjustment!'

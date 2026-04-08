@@ -177,7 +177,7 @@ class DoublyLinkedList:
         - Update tail too if the list becomes empty.
         - Decrease self.size by 1 and return the saved value.
         """
-        self.remove_between(self.header, self.header.next.next)
+        return self.remove_between(self.header, self.header.next.next)
 
     def remove_last(self):
         """
@@ -203,7 +203,7 @@ class DoublyLinkedList:
         - Update head too if the list becomes empty.
         - Decrease self.size by 1 and return the saved value.
         """
-        self.remove_between(self.trailer.prev.prev, self.trailer)
+        return self.remove_between(self.trailer.prev.prev, self.trailer)
 
     def remove_between(self, node1, node2):
         if type(node1) == int:
@@ -261,7 +261,7 @@ class DoublyLinkedList:
         return self.get(0)
 
     def last(self):
-        return self.get(self.size)
+        return self.get(self.size-1)
 
     def get(self, index: int):
         """
