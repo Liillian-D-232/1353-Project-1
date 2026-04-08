@@ -47,4 +47,9 @@ class Snakebody(Object):
 
     dudraw.color
 
-    def __init__(self, x, y)
+    def __init__(self, x, y, num)
+        super().__init__(x, y)
+        self.num = num
+
+    def __str__(self):
+        return f"Segment number: {self.num}" 
