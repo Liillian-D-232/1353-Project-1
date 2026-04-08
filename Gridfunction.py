@@ -1,6 +1,7 @@
 import dudraw
 import random
 
+
 EMPTY = 0
 SNAKEHEAD = 1
 SNAKEBODY = 2
@@ -25,8 +26,18 @@ def create_world(X_scale: int = 50, Y_scale: int = 50):
     return grid_scale
 
 def main():
-    create_world()
-    dudraw.show(500)
+    limit = 20 #number of frames to allow to pass before snake moves
+    timer = 0  #a timer to keep track of number of frames that passed
+    while True:
+        timer += 1
+        #process keyboard press here
+        if timer == limit:
+            timer = 0
+            #draw and move the snake
+            #check to see if snake ate the fruit
+            #check if the snake self intersects
+
+        dudraw.show(40)
 
 if __name__ == '__main__':
     main()
