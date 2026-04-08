@@ -7,7 +7,16 @@ SNAKEHEAD = 1
 SNAKEBODY = 2
 FOODPELLET = 3
 
+# Constants for dudraw canvas size
+CANVAS_X = 600
+CANVAS_Y = 600
 
+# Constants for width and height of simulation grid
+WIDTH = 20
+HEIGHT = 20
+
+# Constant for the canvas background color
+BACKGROUND = dudraw.Color(62, 70,  73)
 
 # def Set_Scale():
 #     scale = input("What do you want the canvas size to be?")
@@ -18,13 +27,16 @@ FOODPELLET = 3
 #     return X_scale, Y_scale
 
 def create_world(X_scale: int = 20, Y_scale: int = 20):
-    Width = int(int(X_scale)*30)
-    Height = int(int(Y_scale)*30)
-    dudraw.set_canvas_size(Width, Height)
-    dudraw.set_x_scale(0, X_scale)
-    dudraw.set_y_scale(0, Y_scale)
-    grid_scale = [[EMPTY for j in range (X_scale)] for i in range (Y_scale)]
-    return grid_scale
+    dudraw.set_canvas_size( CANVAS_X, CANVAS_Y )
+    dudraw.set_x_scale( 0, WIDTH )
+    dudraw.set_y_scale( 0, HEIGHT )
+    # Width = int(int(X_scale)*30)
+    # Height = int(int(Y_scale)*30)
+    # dudraw.set_canvas_size(Width, Height)
+    # dudraw.set_x_scale(0, X_scale)
+    # dudraw.set_y_scale(0, Y_scale)
+    # grid_scale = [[EMPTY for j in range (X_scale)] for i in range (Y_scale)]
+    # return grid_scale
 
 def main():
     create_world()
