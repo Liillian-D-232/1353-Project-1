@@ -9,4 +9,9 @@ class Particle:
         self.b = 120
 
     def draw(self):
-        pass
+        dudraw.filled_square(self.x_pos, self.y_pos, 15)
+
+class Food(Particle):
+    def __init__(self, x, y) -> None:
+        super().__init__(x, y)
+        
