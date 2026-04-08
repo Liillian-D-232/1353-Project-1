@@ -50,10 +50,11 @@ def main():
     key = dudraw.next_key_typed()
     while key != 'q':
         timer += 1
+        the_grid.spawn_food("apple")
+        the_grid.draw()
         #process keyboard press here
         if timer == limit:
             timer = 0
-            the_grid.draw()
             #draw and move the snake
             #check to see if snake ate the fruit
             #check if the snake self intersects

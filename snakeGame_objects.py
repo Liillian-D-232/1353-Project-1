@@ -3,11 +3,9 @@ import dudraw
 class Object:
     """Base class for all objects on grid"""
 
-    def __init__(self, x, y, color):
+    def __init__(self, x, y):
         self.x = x
         self.y = y
-
-        self.COLOR = color
 
     def __str__(self):
         return (f"coordinate: ({self.x}, {self.y}), RGB: {self.COLOR}")
@@ -27,7 +25,7 @@ class Object:
 class Food(Object):
 
     def __init__(self, x, y):
-        super().__init__(x, y, self.COLOR)
+        super().__init__(x, y)
         self.eaten = False
 
     def __str__(self) :
@@ -40,14 +38,14 @@ class Food(Object):
         return self.eaten
 
     def draw( self ) :
-        dudraw.set_pen_color( self.COLOR )
+        dudraw.set_pen_color( dudraw.RED )
         dudraw.filled_rectangle( self.x+0.5, self.y+0.5, 0.45, 0.45 )
 
-class Snakebody(Object):
+'''class Snakebody(Object):
 
     # dudraw.color
 
-    def __init__(self, x, y, num)
+    def __init__(self, x, y, num):
         super().__init__(x, y)
         self.num = num
 
@@ -86,3 +84,4 @@ class Snakehead(Object):
     def draw( self ) :
         dudraw.set_pen_color( self.COLOR )
         dudraw.filled_rectangle( self.x+0.5, self.y+0.5, 0.45, 0.45 )
+'''
