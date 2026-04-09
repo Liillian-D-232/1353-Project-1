@@ -4,11 +4,11 @@ class Object:
     """Base class for all objects on grid"""
 
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
+        self.x_pos = x
+        self.y_pos = y
 
     def __str__(self):
-        return (f"coordinate: ({self.x}, {self.y}), RGB: {None}")
+        return (f"coordinate: ({self.x_pos}, {self.y_pos}), RGB: {None}")
 
     def __repr__(self):
         return self.__str__()
@@ -39,7 +39,32 @@ class Food(Object):
 
     def draw( self ) :
         dudraw.set_pen_color( dudraw.RED )
-        dudraw.filled_rectangle( self.x+0.5, self.y+0.5, 0.45, 0.45 )
+        dudraw.filled_rectangle( self.x_pos+0.5, self.y_pos+0.5, 0.45, 0.45 )
+
+class SnakeSegment(Object):
+    next_id = 0
+    def __init__(self, x, y):
+        super().__init__(x, y)
+        self.id = SnakeSegment.next_id
+        SnakeSegment.next_id += 1
+
+        self.target_x = None
+        self.target_y = None
+
+    def __str__(self):
+        return f"Snake: Segment number {self.id}; {super().__str__()}" 
+
+    def set_target(self, other):
+        if self.id > 0:
+            self.target_x = other.x_position
+            self.target_y = other.y_position
+        else:
+            self.target_x = None
+            self.target_y = None
+
+    def draw( self ) :
+        dudraw.set_pen_color( dudraw.DARK_GREEN )
+        dudraw.filled_rectangle( self.x_pos+0.5, self.y_pos+0.5, 0.5, 0.5 )
 
 '''class Snakebody(Object):
 
