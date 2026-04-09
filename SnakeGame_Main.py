@@ -1,3 +1,4 @@
+from DoublyLinkedList import DoublyLinkedList as DLL
 import dudraw
 import random
 import snakeGame_objects
@@ -50,7 +51,8 @@ def main():
     key = dudraw.next_key_typed()
     while key != 'q':
         timer += 1
-        the_grid.spawn_food("apple")
+        if (the_grid.uneaten_food.size) < 1:
+            the_grid.spawn_food("apple")
         the_grid.draw()
         #process keyboard press here
         if timer == limit:

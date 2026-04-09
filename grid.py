@@ -1,3 +1,4 @@
+from DoublyLinkedList import DoublyLinkedList as DLL
 import random
 import snakeGame_objects
 
@@ -6,9 +7,9 @@ class Grid:
             self.width = width 
             self.height = height
             # store all the fish in the lake
-            self.uneaten_food = []
+            self.uneaten_food = DLL()
             # store the fish that are dead and yet to be removed
-            self.eaten_food = []
+            self.eaten_food = DLL()
             # TODO: Create self.grid, a nested list of the given width
             # and height, every value is initialized to None
             self.grid = [[None for j in range(self.height)] for i in range(self.width)]
@@ -31,8 +32,7 @@ class Grid:
             # Append the new minnow to the list of living fish
             new_apple = snakeGame_objects.Food(x,y)
             self.grid[x][y] = new_apple
-            self.uneaten_food.append(new_apple)
-
+            self.uneaten_food.add_last(new_apple)
 
     def eat_food( self, x, y ) :
         # TODO: Determine the fish at this location.
@@ -42,7 +42,7 @@ class Grid:
         # Set the grid location to None
         self.grid[x][y] = None
         # append this fish to the list of dead fish.
-        self.eaten_food.append(the_food)
+        self.eaten_food.add_last(the_food)
 
     def remove_eaten_food(self):
         # TODO: traverse the list of dead_fish. For each one,
