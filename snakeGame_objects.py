@@ -8,7 +8,7 @@ class Object:
         self.y = y
 
     def __str__(self):
-        return (f"coordinate: ({self.x}, {self.y}), RGB: {self.COLOR}")
+        return (f"coordinate: ({self.x}, {self.y}), RGB: {None}")
 
     def __repr__(self):
         return self.__str__()

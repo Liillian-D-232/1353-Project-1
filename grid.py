@@ -48,11 +48,12 @@ class Grid:
         # TODO: traverse the list of dead_fish. For each one,
         # remove it from the list of living_fish. Then clear
         # the list of dead_fish.
-        for eatenfood in self.eaten_food:
-            if eatenfood in self.uneaten_food:
-                self.uneaten_food.remove(eatenfood)
+        for _ in range(self.eaten_food.size):
+            if self.eaten_food.get(_) in self.uneaten_food:
+                self.uneaten_food.remove_at_index(self.eaten_food.get(_))
         
-        self.eaten_food.clear()
+        for _ in range(self.eaten_food.size):
+            self.eaten_food.remove_first()
 
     def draw(self):
         """Draw the current minnows and trouts in the lake"""
