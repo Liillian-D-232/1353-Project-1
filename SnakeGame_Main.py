@@ -18,7 +18,7 @@ WIDTH = 20
 HEIGHT = 20
 
 # Constant for the canvas background color
-BACKGROUND = dudraw.Color(62, 70,  73)
+BACKGROUND = dudraw.Color(150, 150, 150)
 
 # def Set_Scale():
 #     scale = input("What do you want the canvas size to be?")
@@ -32,6 +32,7 @@ def create_world():
     dudraw.set_canvas_size( CANVAS_X, CANVAS_Y )
     dudraw.set_x_scale( 0, WIDTH )
     dudraw.set_y_scale( 0, HEIGHT )
+    dudraw.clear(BACKGROUND)
     # Width = int(int(X_scale)*30)
     # Height = int(int(Y_scale)*30)
     # dudraw.set_canvas_size(Width, Height)
@@ -57,7 +58,7 @@ def main():
         #process keyboard press here
         if timer == limit:
             timer = 0
-            #draw and move the snake
+            
             #check to see if snake ate the fruit
             #check if the snake self intersects
 

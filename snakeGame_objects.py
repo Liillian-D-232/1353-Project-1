@@ -66,6 +66,17 @@ class SnakeSegment(Object):
         dudraw.set_pen_color( dudraw.DARK_GREEN )
         dudraw.filled_rectangle( self.x_pos+0.5, self.y_pos+0.5, 0.5, 0.5 )
 
+class SnakeHead(SnakeSegment):
+    def __init__(self, x, y):
+        super().__init__(x, y)
+
+class SnakeBody(SnakeSegment):
+    def __init__(self, x, y):
+        super().__init__(x, y)
+
+        self.target_x = None
+        self.target_y = None
+
 '''class Snakebody(Object):
 
     # dudraw.color
