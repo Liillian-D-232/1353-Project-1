@@ -58,7 +58,8 @@ def main():
         #process keyboard press here
         if timer == limit:
             timer = 0
-            
+            the_grid.SpawnSnake()
+            the_grid.SnakeMove()
             #check to see if snake ate the fruit
             #check if the snake self intersects
 

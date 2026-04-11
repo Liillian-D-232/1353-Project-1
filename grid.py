@@ -67,3 +67,17 @@ class Grid:
                 else:
                     obj = self.grid[i][j]
                     obj.draw()
+
+    def SpawnSnake(self):
+        self.snakes = []
+        for i in range(2):
+            self.snakes.append(snakeGame_objects.Snake(random.random(), random.random()))
+
+    def SnakeMove(self):
+        for snake in self.snakes:
+            snake.draw()
+        for i in range(len(self.snakes)):
+            if i > 0:
+                self.snakes[i].set_target(self.snakes[i-1])
+            else:
+                self.snakes[i].set_target(self.snakes[i])

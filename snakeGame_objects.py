@@ -41,12 +41,12 @@ class Food(Object):
         dudraw.set_pen_color( dudraw.RED )
         dudraw.filled_rectangle( self.x_pos+0.5, self.y_pos+0.5, 0.45, 0.45 )
 
-class SnakeSegment(Object):
+class Snake(Object):
     next_id = 0
     def __init__(self, x, y):
         super().__init__(x, y)
-        self.id = SnakeSegment.next_id
-        SnakeSegment.next_id += 1
+        self.id = Snake.next_id
+        Snake.next_id += 1
 
         self.target_x = None
         self.target_y = None
@@ -63,19 +63,31 @@ class SnakeSegment(Object):
             self.target_y = None
 
     def draw( self ) :
-        dudraw.set_pen_color( dudraw.DARK_GREEN )
-        dudraw.filled_rectangle( self.x_pos+0.5, self.y_pos+0.5, 0.5, 0.5 )
+        if self.id < 0:
+            dudraw.set_pen_color( dudraw.DARK_GREEN )
+            dudraw.filled_rectangle( self.x_pos+0.5, self.y_pos+0.5, 0.5, 0.5 )
+        else:
+            dudraw.set_pen_color( dudraw.DARK_GREEN )
+            dudraw.filled_rectangle( self.x_pos+0.5, self.y_pos+0.5, 0.5, 0.5 )
+            dudraw.set_pen_color( dudraw.WHITE )
+            dudraw.filled_circle( self.x_pos+0.5, self.y_pos+0.7, 0.05)
+            dudraw.filled_circle( self.x_pos+0.3, self.y_pos+0.5, 0.05)
 
-class SnakeHead(SnakeSegment):
-    def __init__(self, x, y):
-        super().__init__(x, y)
+    
 
-class SnakeBody(SnakeSegment):
-    def __init__(self, x, y):
-        super().__init__(x, y)
 
-        self.target_x = None
-        self.target_y = None
+
+
+# class SnakeHead(SnakeSegment):
+#     def __init__(self, x, y):
+#         super().__init__(x, y)
+
+# class SnakeBody(SnakeSegment):
+#     def __init__(self, x, y):
+#         super().__init__(x, y)
+
+#         self.target_x = None
+#         self.target_y = None
 
 '''class Snakebody(Object):
 
