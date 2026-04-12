@@ -58,18 +58,17 @@ def main():
             the_grid.spawn_food("apple")
         the_grid.draw()
         
-        key = dudraw.next_key_typed()
-        print(key)
-        if key == "w":
+        # temp_dir = dir
+        key = dudraw.keys_pressed()
+        # print(key)
+        if "w" in key:
             dir = 1
-        elif key =="a":
+        elif "a" in key:
             dir = 2
-        elif key =="s":
+        elif "s" in key:
             dir = 3
-        elif key =="d":
+        elif "d" in key:
             dir = 4
-        else:
-            dir = None
 
         if timer == limit:
             timer = 0

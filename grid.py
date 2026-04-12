@@ -78,6 +78,8 @@ class Grid:
                 self.snakes[i].set_target(self.snakes[i-1])
             else:
                 self.snakes[i].set_target(None)
+        for snake in self.snakes:
+            snake.draw()
 
     def SnakeMove(self, dir):
         if dir == 1:
@@ -87,6 +89,8 @@ class Grid:
         elif dir == 3:
             self.snakes[0].y_pos -= 1
         elif dir == 4:
+            self.snakes[0].x_pos += 1
+        else:
             self.snakes[0].x_pos += 1
                 
         for snake in self.snakes:
