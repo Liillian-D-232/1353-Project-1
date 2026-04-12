@@ -8,7 +8,7 @@ class Object:
         self.y_pos = y
 
     def __str__(self):
-        return (f"coordinate: ({self.x_pos}, {self.y_pos}), RGB: {None}")
+        return (f"coordinate: ({self.x_pos}, {self.y_pos})")
 
     def __repr__(self):
         return self.__str__()
@@ -55,9 +55,10 @@ class Snake(Object):
         return f"Snake: Segment number {self.id}; {super().__str__()}" 
 
     def set_target(self, other):
-        if self.id > 0:
-            self.target_x = other.x_position
-            self.target_y = other.y_position
+        if type(other) is object:
+            if self.id > 0:
+                self.target_x = other.x_position
+                self.target_y = other.y_position
         else:
             self.target_x = None
             self.target_y = None
@@ -69,12 +70,15 @@ class Snake(Object):
         else:
             dudraw.set_pen_color( dudraw.DARK_GREEN )
             dudraw.filled_rectangle( self.x_pos+0.5, self.y_pos+0.5, 0.5, 0.5 )
-            dudraw.set_pen_color( dudraw.WHITE )
-            dudraw.filled_circle( self.x_pos+0.5, self.y_pos+0.7, 0.05)
-            dudraw.filled_circle( self.x_pos+0.3, self.y_pos+0.5, 0.05)
+            # dudraw.set_pen_color( dudraw.WHITE )
+            # dudraw.filled_circle( self.x_pos+0.5, self.y_pos+0.7, 0.05)
+            # dudraw.filled_circle( self.x_pos+0.3, self.y_pos+0.5, 0.05)
 
-    
-
+    def moveSnake(self):
+        # advance the circle to the next position:
+        self.x_position += x_shift
+        self.y_position += y_shift
+        
 
 
 

@@ -71,13 +71,28 @@ class Grid:
     def SpawnSnake(self):
         self.snakes = []
         for i in range(2):
-            self.snakes.append(snakeGame_objects.Snake(random.random(), random.random()))
-
-    def SnakeMove(self):
-        for snake in self.snakes:
-            snake.draw()
+            self.snakes.append(snakeGame_objects.Snake(10, 5-i))
+            # print(self.snakes[i])
         for i in range(len(self.snakes)):
             if i > 0:
                 self.snakes[i].set_target(self.snakes[i-1])
             else:
-                self.snakes[i].set_target(self.snakes[i])
+                self.snakes[i].set_target(None)
+
+    def SnakeMove(self, dir):
+        if dir == 1:
+            self.snakes[0].y_pos += 1
+        elif dir == 2:
+            self.snakes[0].x_pos -= 1
+        elif dir == 3:
+            self.snakes[0].y_pos -= 1
+        elif dir == 4:
+            self.snakes[0].x_pos += 1
+                
+        for snake in self.snakes:
+            if (snake.target_x is not None) and (snake.target_y is not None):
+                x_diff = (snake.target_x - snake.x_pos)
+                y_diff = (snake.target_y - snake.y_pos)
+                self.x_position += x_diff
+                self.y_position += y_diff
+            snake.draw()

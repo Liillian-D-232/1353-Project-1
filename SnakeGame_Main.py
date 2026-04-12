@@ -49,21 +49,35 @@ def main():
     timer = 0  #a timer to keep track of number of frames that passed
 
     num_food = 1
+    the_grid.SpawnSnake()
+
     key = dudraw.next_key_typed()
     while key != 'q':
         timer += 1
         if (the_grid.uneaten_food.size) < 1:
             the_grid.spawn_food("apple")
         the_grid.draw()
-        #process keyboard press here
+        
+        key = dudraw.next_key_typed()
+        print(key)
+        if key == "w":
+            dir = 1
+        elif key =="a":
+            dir = 2
+        elif key =="s":
+            dir = 3
+        elif key =="d":
+            dir = 4
+        else:
+            dir = None
+
         if timer == limit:
             timer = 0
-            the_grid.SpawnSnake()
-            the_grid.SnakeMove()
-            #check to see if snake ate the fruit
-            #check if the snake self intersects
+            the_grid.SnakeMove(dir)
+            # if the_grid.uneaten_food.get
+            # check if the snake self intersects
 
-        dudraw.show(40)
+        dudraw.show(50)
 
 if __name__ == '__main__':
     main()
