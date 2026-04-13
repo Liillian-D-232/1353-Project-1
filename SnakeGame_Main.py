@@ -4,10 +4,10 @@ import random
 import snakeGame_objects
 from grid import Grid
 
-EMPTY = 0
-SNAKEHEAD = 1
-SNAKEBODY = 2
-FOODPELLET = 3
+# EMPTY = 0
+# SNAKEHEAD = 1
+# SNAKEBODY = 2
+# FOODPELLET = 3
 
 # Constants for dudraw canvas size
 CANVAS_X = 600
