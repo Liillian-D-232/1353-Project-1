@@ -47,7 +47,7 @@ class Snakebody(Object):
 
     # dudraw.color
 
-    def __init__(self, x, y, num)
+    def __init__(self, x, y, num):
         super().__init__(x, y)
         self.num = num
 
