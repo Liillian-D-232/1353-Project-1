@@ -90,7 +90,7 @@ class Grid:
             self.snakes[0].y_pos -= 1
         elif dir == 4:
             self.snakes[0].x_pos += 1
-        else:
+        elif dir == 0:
             self.snakes[0].x_pos += 1
                 
         for snake in self.snakes:

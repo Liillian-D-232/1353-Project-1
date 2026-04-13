@@ -51,8 +51,8 @@ def main():
     num_food = 1
     the_grid.SpawnSnake()
 
-    key = dudraw.next_key_typed()
-    while key != 'q':
+    key = dudraw.keys_pressed()
+    while 'q' not in key:
         timer += 1
         if (the_grid.uneaten_food.size) < 1:
             the_grid.spawn_food("apple")
@@ -69,6 +69,8 @@ def main():
             dir = 3
         elif "d" in key:
             dir = 4
+        else:
+            dir = 0
 
         if timer == limit:
             timer = 0
